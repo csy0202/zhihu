@@ -15,6 +15,28 @@
 		E51B94112410D40700767270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E51B940F2410D40700767270 /* LaunchScreen.storyboard */; };
 		E51B941C2410D40700767270 /* zhihuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B941B2410D40700767270 /* zhihuTests.swift */; };
 		E51B94272410D40700767270 /* zhihuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51B94262410D40700767270 /* zhihuUITests.swift */; };
+		E53585EC24346DCB003D1822 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53585EB24346DCB003D1822 /* HomeViewController.swift */; };
+		E53585F1243471CB003D1822 /* BaseTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53585F0243471CB003D1822 /* BaseTabbarController.swift */; };
+		E593A6BF2435B73700C228DE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6BE2435B73700C228DE /* BaseViewController.swift */; };
+		E593A6C52435C51600C228DE /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6C12435C51600C228DE /* Date+Extension.swift */; };
+		E593A6C62435C51600C228DE /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6C22435C51600C228DE /* UIView+Extension.swift */; };
+		E593A6C72435C51600C228DE /* UIcolor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6C32435C51600C228DE /* UIcolor+Extension.swift */; };
+		E593A6C82435C51600C228DE /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6C42435C51600C228DE /* UIDevice+Extension.swift */; };
+		E593A6D72435C53200C228DE /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6D62435C53200C228DE /* Const.swift */; };
+		E593A6D92435C76500C228DE /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6D82435C76500C228DE /* BaseNavigationViewController.swift */; };
+		E593A6DB2435E30300C228DE /* AttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6DA2435E30300C228DE /* AttentionCell.swift */; };
+		E593A6DD2435E36100C228DE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6DC2435E36100C228DE /* BaseTableViewCell.swift */; };
+		E593A6DF2435EC7C00C228DE /* AttentionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6DE2435EC7C00C228DE /* AttentionModel.swift */; };
+		E593A6E32436FE6E00C228DE /* ZHApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E22436FE6E00C228DE /* ZHApi.swift */; };
+		E593A6E52437220F00C228DE /* cellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E42437220F00C228DE /* cellHeaderView.swift */; };
+		E593A6E724372EB600C228DE /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E624372EB600C228DE /* UIKit+Extension.swift */; };
+		E593A6E9243744BD00C228DE /* cellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E8243744BD00C228DE /* cellContentView.swift */; };
+		E593A6EB243744E000C228DE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6EA243744E000C228DE /* BaseView.swift */; };
+		E593A6EF243893DD00C228DE /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6EE243893DD00C228DE /* AttentionViewController.swift */; };
+		E593A6F22438942900C228DE /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F12438942900C228DE /* RecommendViewController.swift */; };
+		E593A6F52438945A00C228DE /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F42438945A00C228DE /* HotViewController.swift */; };
+		E593A6F72438A53200C228DE /* AttentionFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F62438A53200C228DE /* AttentionFrame.swift */; };
+		E593A6F9243C79CF00C228DE /* ButtonL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F8243C79CF00C228DE /* ButtonL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +73,28 @@
 		E51B94222410D40700767270 /* zhihuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = zhihuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E51B94262410D40700767270 /* zhihuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = zhihuUITests.swift; sourceTree = "<group>"; };
 		E51B94282410D40700767270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E53585EB24346DCB003D1822 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E53585F0243471CB003D1822 /* BaseTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarController.swift; sourceTree = "<group>"; };
+		E593A6BE2435B73700C228DE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E593A6C12435C51600C228DE /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		E593A6C22435C51600C228DE /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		E593A6C32435C51600C228DE /* UIcolor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIcolor+Extension.swift"; sourceTree = "<group>"; };
+		E593A6C42435C51600C228DE /* UIDevice+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		E593A6D62435C53200C228DE /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		E593A6D82435C76500C228DE /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		E593A6DA2435E30300C228DE /* AttentionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionCell.swift; sourceTree = "<group>"; };
+		E593A6DC2435E36100C228DE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		E593A6DE2435EC7C00C228DE /* AttentionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionModel.swift; sourceTree = "<group>"; };
+		E593A6E22436FE6E00C228DE /* ZHApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHApi.swift; sourceTree = "<group>"; };
+		E593A6E42437220F00C228DE /* cellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellHeaderView.swift; sourceTree = "<group>"; };
+		E593A6E624372EB600C228DE /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		E593A6E8243744BD00C228DE /* cellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellContentView.swift; sourceTree = "<group>"; };
+		E593A6EA243744E000C228DE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		E593A6EE243893DD00C228DE /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
+		E593A6F12438942900C228DE /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		E593A6F42438945A00C228DE /* HotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
+		E593A6F62438A53200C228DE /* AttentionFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionFrame.swift; sourceTree = "<group>"; };
+		E593A6F8243C79CF00C228DE /* ButtonL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +156,9 @@
 		E51B94052410D40400767270 /* zhihu */ = {
 			isa = PBXGroup;
 			children = (
-				E51B94342410D53700767270 /* Home */,
+				E593A6C02435C4D700C228DE /* Tool */,
+				E53585EF2434715F003D1822 /* Main */,
+				E53585EE24347147003D1822 /* Base */,
 				E51B94062410D40400767270 /* AppDelegate.swift */,
 				E51B94082410D40400767270 /* ViewController.swift */,
 				E51B940A2410D40400767270 /* Main.storyboard */,
@@ -144,23 +190,29 @@
 		E51B94342410D53700767270 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E593A6F32438944A00C228DE /* Hot */,
+				E593A6F02438940200C228DE /* Recommend */,
+				E593A6EC2438937F00C228DE /* Attention */,
 				E53585E22434668F003D1822 /* View */,
 				E53585E12434667E003D1822 /* Model */,
-				E53585E024346670003D1822 /* ViewController */,
+				E53585E024346670003D1822 /* Controller */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		E53585E024346670003D1822 /* ViewController */ = {
+		E53585E024346670003D1822 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E53585EB24346DCB003D1822 /* HomeViewController.swift */,
 			);
-			path = ViewController;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		E53585E12434667E003D1822 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E593A6DE2435EC7C00C228DE /* AttentionModel.swift */,
+				E593A6F62438A53200C228DE /* AttentionFrame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,8 +220,158 @@
 		E53585E22434668F003D1822 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E593A6DA2435E30300C228DE /* AttentionCell.swift */,
+				E593A6E8243744BD00C228DE /* cellContentView.swift */,
+				E593A6E42437220F00C228DE /* cellHeaderView.swift */,
+				E593A6F8243C79CF00C228DE /* ButtonL.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E53585E324346D14003D1822 /* Members */ = {
+			isa = PBXGroup;
+			children = (
+				E53585E724346D87003D1822 /* Controller */,
+			);
+			path = Members;
+			sourceTree = "<group>";
+		};
+		E53585E424346D39003D1822 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				E53585E824346DA5003D1822 /* Controller */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		E53585E524346D49003D1822 /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				E53585E924346DAC003D1822 /* Controller */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		E53585E624346D6F003D1822 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				E53585EA24346DB4003D1822 /* Controller */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
+		E53585E724346D87003D1822 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E53585E824346DA5003D1822 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E53585E924346DAC003D1822 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E53585EA24346DB4003D1822 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E53585ED24346E0E003D1822 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6C12435C51600C228DE /* Date+Extension.swift */,
+				E593A6C32435C51600C228DE /* UIcolor+Extension.swift */,
+				E593A6C42435C51600C228DE /* UIDevice+Extension.swift */,
+				E593A6C22435C51600C228DE /* UIView+Extension.swift */,
+				E593A6E624372EB600C228DE /* UIKit+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E53585EE24347147003D1822 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E53585F0243471CB003D1822 /* BaseTabbarController.swift */,
+				E593A6D82435C76500C228DE /* BaseNavigationViewController.swift */,
+				E593A6BE2435B73700C228DE /* BaseViewController.swift */,
+				E593A6DC2435E36100C228DE /* BaseTableViewCell.swift */,
+				E593A6EA243744E000C228DE /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E53585EF2434715F003D1822 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E53585E624346D6F003D1822 /* Add */,
+				E53585E524346D49003D1822 /* Me */,
+				E53585E424346D39003D1822 /* Message */,
+				E53585E324346D14003D1822 /* Members */,
+				E51B94342410D53700767270 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E593A6C02435C4D700C228DE /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6D52435C53200C228DE /* AppConfig */,
+				E593A6C92435C52C00C228DE /* NetTools */,
+				E53585ED24346E0E003D1822 /* Extension */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		E593A6C92435C52C00C228DE /* NetTools */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6E22436FE6E00C228DE /* ZHApi.swift */,
+			);
+			path = NetTools;
+			sourceTree = "<group>";
+		};
+		E593A6D52435C53200C228DE /* AppConfig */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6D62435C53200C228DE /* Const.swift */,
+			);
+			path = AppConfig;
+			sourceTree = "<group>";
+		};
+		E593A6EC2438937F00C228DE /* Attention */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6EE243893DD00C228DE /* AttentionViewController.swift */,
+			);
+			path = Attention;
+			sourceTree = "<group>";
+		};
+		E593A6F02438940200C228DE /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6F12438942900C228DE /* RecommendViewController.swift */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		E593A6F32438944A00C228DE /* Hot */ = {
+			isa = PBXGroup;
+			children = (
+				E593A6F42438945A00C228DE /* HotViewController.swift */,
+			);
+			path = Hot;
 			sourceTree = "<group>";
 		};
 		FFA985020A69461F2E7E6940 /* Pods */ = {
@@ -356,8 +558,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E593A6F9243C79CF00C228DE /* ButtonL.swift in Sources */,
+				E593A6F52438945A00C228DE /* HotViewController.swift in Sources */,
+				E593A6D92435C76500C228DE /* BaseNavigationViewController.swift in Sources */,
+				E593A6BF2435B73700C228DE /* BaseViewController.swift in Sources */,
+				E593A6F22438942900C228DE /* RecommendViewController.swift in Sources */,
+				E593A6C62435C51600C228DE /* UIView+Extension.swift in Sources */,
+				E593A6E52437220F00C228DE /* cellHeaderView.swift in Sources */,
 				E51B94092410D40400767270 /* ViewController.swift in Sources */,
+				E593A6EF243893DD00C228DE /* AttentionViewController.swift in Sources */,
 				E51B94072410D40400767270 /* AppDelegate.swift in Sources */,
+				E593A6DF2435EC7C00C228DE /* AttentionModel.swift in Sources */,
+				E593A6C82435C51600C228DE /* UIDevice+Extension.swift in Sources */,
+				E593A6DB2435E30300C228DE /* AttentionCell.swift in Sources */,
+				E53585EC24346DCB003D1822 /* HomeViewController.swift in Sources */,
+				E593A6E9243744BD00C228DE /* cellContentView.swift in Sources */,
+				E593A6E32436FE6E00C228DE /* ZHApi.swift in Sources */,
+				E53585F1243471CB003D1822 /* BaseTabbarController.swift in Sources */,
+				E593A6F72438A53200C228DE /* AttentionFrame.swift in Sources */,
+				E593A6C52435C51600C228DE /* Date+Extension.swift in Sources */,
+				E593A6C72435C51600C228DE /* UIcolor+Extension.swift in Sources */,
+				E593A6DD2435E36100C228DE /* BaseTableViewCell.swift in Sources */,
+				E593A6EB243744E000C228DE /* BaseView.swift in Sources */,
+				E593A6D72435C53200C228DE /* Const.swift in Sources */,
+				E593A6E724372EB600C228DE /* UIKit+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

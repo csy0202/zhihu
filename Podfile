@@ -7,6 +7,7 @@ target 'zhihu' do
 
 pod 'SnapKit'
 pod 'Then'
+pod 'Reusable'
 pod 'Moya/RxSwift'
 pod 'HandyJSON', '~> 5.0.0-beta.1'
 pod 'Kingfisher'

@@ -13,6 +13,11 @@ PODS:
     - Moya/Core
     - RxSwift (~> 4.0)
   - Result (4.1.0)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
   - RxSwift (4.5.0)
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
@@ -26,6 +31,7 @@ DEPENDENCIES:
   - Kingfisher
   - MJRefresh
   - Moya/RxSwift
+  - Reusable
   - SnapKit
   - SVProgressHUD
   - Then
@@ -41,6 +47,7 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - Result
+    - Reusable
     - RxSwift
     - SnapKit
     - SVProgressHUD
@@ -56,11 +63,12 @@ SPEC CHECKSUMS:
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
 
-PODFILE CHECKSUM: 444b8f88136fa3a1e37e974b7aa3904eeb437167
+PODFILE CHECKSUM: a6f8c0827ec3afacef5daf320997a902549013c2
 
 COCOAPODS: 1.9.0
