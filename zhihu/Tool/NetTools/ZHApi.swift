@@ -21,7 +21,8 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
 let ZHApiProvider = MoyaProvider<ZHApi>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
 enum ZHApi {
-    case moments(parameDic:[String:Any]) // 关注列表
+    case moments(parameDic:[String:Any]); // 关注列表
+    case momentsLastread
 }
 
 extension ZHApi : TargetType {
@@ -32,11 +33,19 @@ extension ZHApi : TargetType {
         switch self {
         case .moments(_):
             return "/moments"
+        case .momentsLastread:
+            return "/moments/lastread"
         }
+        
     }
 
     var method: Moya.Method {
-        return .get
+        switch self {
+        case .moments(_):
+            return .get
+        case .momentsLastread:
+            return .post
+        }
     }
 
     var sampleData: Data {
@@ -48,13 +57,16 @@ extension ZHApi : TargetType {
         switch self {
         case .moments(let dic):
             customParaDic = dic
+        case .momentsLastread: 
+            break
         }
         return .requestParameters(parameters: customParaDic, encoding: JSONEncoding.default)
     }
 
     var headers: [String : String]? {
        return ["Content-type" : "application/json",
-               "cookie":"KLBRSID=ed2ad9934af8a1f80db52dcb08d13344|1585898069|1585896308; _xsrf=ceMpvDxyk50JIfFFgjvzshEw60AZRNwS; q_c1=1c9ee22a127146d4a71ee707b2a1f6f2|1545795861000|1545795861000; _zap=61f2fbe9-3222-47e0-bb00-2c32a21ff3c0; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=1583380225,1585641305; q_c0=2|1:0|10:1584878816|4:q_c0|80:MS4xYl9TckJnQUFBQUFMQUFBQVlBSlZUZURobmw2cmxhZ2NiOFU1T3JtMUhNekJCS3VrQmFuM0ZRPT0=|ce5088a0adcdac35ec9bb1e6ffca61f970cb97157fcdba7d9c483e6fe3d277d2; z_c0=2|1:0|10:1584878816|4:z_c0|80:MS4xYl9TckJnQUFBQUFMQUFBQVlBSlZUZURobmw2cmxhZ2NiOFU1T3JtMUhNekJCS3VrQmFuM0ZRPT0=|f1f6d9e589f6e030453a33d0982fef62dc5d2b2d16d45673850917ddd73a25ed; zst_82=2.0AJBTjBTLDxELAAAASwUAADIuMK3ghl4AAAAAoDiD-nUfVsgnK701Dz3lxvJBnj8="]
+               "cookie":"KLBRSID=9d75f80756f65c61b0a50d80b4ca9b13|1586403745|1586403745; _xsrf=ceMpvDxyk50JIfFFgjvzshEw60AZRNwS; q_c1=1c9ee22a127146d4a71ee707b2a1f6f2|1545795861000|1545795861000; _zap=61f2fbe9-3222-47e0-bb00-2c32a21ff3c0; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=1583380225,1585641305; q_c0=2|1:0|10:1584878816|4:q_c0|80:MS4xYl9TckJnQUFBQUFMQUFBQVlBSlZUZURobmw2cmxhZ2NiOFU1T3JtMUhNekJCS3VrQmFuM0ZRPT0=|ce5088a0adcdac35ec9bb1e6ffca61f970cb97157fcdba7d9c483e6fe3d277d2; z_c0=2|1:0|10:1584878816|4:z_c0|80:MS4xYl9TckJnQUFBQUFMQUFBQVlBSlZUZURobmw2cmxhZ2NiOFU1T3JtMUhNekJCS3VrQmFuM0ZRPT0=|f1f6d9e589f6e030453a33d0982fef62dc5d2b2d16d45673850917ddd73a25ed; d_c0=AIACoYwyvwxLBeYh-iZOsl7sBbW0ca8_870=|1586403715; zst_82=2.0AJBUXABVFxELAAAASwUAADIuMOqYjl4AAAAAZgDW0zca6sFODq9w-WLUHtwuV7k=",
+               "authorization":"Bearer 1.1b_SrBgAAAAALAAAAYAJVTeDhnl6rlagcb8U5Orm1HMzBBKukBan3FQ=="]
     }
 }
 

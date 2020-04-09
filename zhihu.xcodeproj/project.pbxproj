@@ -28,15 +28,24 @@
 		E593A6DD2435E36100C228DE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6DC2435E36100C228DE /* BaseTableViewCell.swift */; };
 		E593A6DF2435EC7C00C228DE /* AttentionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6DE2435EC7C00C228DE /* AttentionModel.swift */; };
 		E593A6E32436FE6E00C228DE /* ZHApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E22436FE6E00C228DE /* ZHApi.swift */; };
-		E593A6E52437220F00C228DE /* cellHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E42437220F00C228DE /* cellHeaderView.swift */; };
 		E593A6E724372EB600C228DE /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E624372EB600C228DE /* UIKit+Extension.swift */; };
-		E593A6E9243744BD00C228DE /* cellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6E8243744BD00C228DE /* cellContentView.swift */; };
 		E593A6EB243744E000C228DE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6EA243744E000C228DE /* BaseView.swift */; };
 		E593A6EF243893DD00C228DE /* AttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6EE243893DD00C228DE /* AttentionViewController.swift */; };
 		E593A6F22438942900C228DE /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F12438942900C228DE /* RecommendViewController.swift */; };
 		E593A6F52438945A00C228DE /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F42438945A00C228DE /* HotViewController.swift */; };
 		E593A6F72438A53200C228DE /* AttentionFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F62438A53200C228DE /* AttentionFrame.swift */; };
 		E593A6F9243C79CF00C228DE /* ButtonL.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6F8243C79CF00C228DE /* ButtonL.swift */; };
+		E593A6FB243D991600C228DE /* viewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6FA243D991600C228DE /* viewModel.swift */; };
+		E593A6FD243EC36A00C228DE /* ZhiHuTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6FC243EC36A00C228DE /* ZhiHuTool.swift */; };
+		E593A6FF243EF79100C228DE /* RecommendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A6FE243EF79100C228DE /* RecommendModel.swift */; };
+		E593A702243EFC3F00C228DE /* titleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A701243EFC3F00C228DE /* titleView.swift */; };
+		E593A70B243F0EE800C228DE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A704243F0EE700C228DE /* Helper.swift */; };
+		E593A70C243F0EE800C228DE /* PageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A705243F0EE700C228DE /* PageStyle.swift */; };
+		E593A70D243F0EE800C228DE /* PageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A706243F0EE700C228DE /* PageTitleView.swift */; };
+		E593A70E243F0EE800C228DE /* PageCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A707243F0EE800C228DE /* PageCollectionViewFlowLayout.swift */; };
+		E593A70F243F0EE800C228DE /* PageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A708243F0EE800C228DE /* PageContentView.swift */; };
+		E593A710243F0EE800C228DE /* PageViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A709243F0EE800C228DE /* PageViewManager.swift */; };
+		E593A711243F0EE800C228DE /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E593A70A243F0EE800C228DE /* PageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,15 +95,24 @@
 		E593A6DC2435E36100C228DE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		E593A6DE2435EC7C00C228DE /* AttentionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionModel.swift; sourceTree = "<group>"; };
 		E593A6E22436FE6E00C228DE /* ZHApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZHApi.swift; sourceTree = "<group>"; };
-		E593A6E42437220F00C228DE /* cellHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellHeaderView.swift; sourceTree = "<group>"; };
 		E593A6E624372EB600C228DE /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
-		E593A6E8243744BD00C228DE /* cellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cellContentView.swift; sourceTree = "<group>"; };
 		E593A6EA243744E000C228DE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E593A6EE243893DD00C228DE /* AttentionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionViewController.swift; sourceTree = "<group>"; };
 		E593A6F12438942900C228DE /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		E593A6F42438945A00C228DE /* HotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
 		E593A6F62438A53200C228DE /* AttentionFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttentionFrame.swift; sourceTree = "<group>"; };
 		E593A6F8243C79CF00C228DE /* ButtonL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonL.swift; sourceTree = "<group>"; };
+		E593A6FA243D991600C228DE /* viewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewModel.swift; sourceTree = "<group>"; };
+		E593A6FC243EC36A00C228DE /* ZhiHuTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhiHuTool.swift; sourceTree = "<group>"; };
+		E593A6FE243EF79100C228DE /* RecommendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendModel.swift; sourceTree = "<group>"; };
+		E593A701243EFC3F00C228DE /* titleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleView.swift; sourceTree = "<group>"; };
+		E593A704243F0EE700C228DE /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		E593A705243F0EE700C228DE /* PageStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageStyle.swift; sourceTree = "<group>"; };
+		E593A706243F0EE700C228DE /* PageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageTitleView.swift; sourceTree = "<group>"; };
+		E593A707243F0EE800C228DE /* PageCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		E593A708243F0EE800C228DE /* PageContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentView.swift; sourceTree = "<group>"; };
+		E593A709243F0EE800C228DE /* PageViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewManager.swift; sourceTree = "<group>"; };
+		E593A70A243F0EE800C228DE /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +231,8 @@
 			children = (
 				E593A6DE2435EC7C00C228DE /* AttentionModel.swift */,
 				E593A6F62438A53200C228DE /* AttentionFrame.swift */,
+				E593A6FA243D991600C228DE /* viewModel.swift */,
+				E593A6FE243EF79100C228DE /* RecommendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,8 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				E593A6DA2435E30300C228DE /* AttentionCell.swift */,
-				E593A6E8243744BD00C228DE /* cellContentView.swift */,
-				E593A6E42437220F00C228DE /* cellHeaderView.swift */,
 				E593A6F8243C79CF00C228DE /* ButtonL.swift */,
 			);
 			path = View;
@@ -327,9 +345,11 @@
 		E593A6C02435C4D700C228DE /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				E593A703243F0EC800C228DE /* PageView */,
 				E593A6D52435C53200C228DE /* AppConfig */,
 				E593A6C92435C52C00C228DE /* NetTools */,
 				E53585ED24346E0E003D1822 /* Extension */,
+				E593A6FC243EC36A00C228DE /* ZhiHuTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -369,9 +389,32 @@
 		E593A6F32438944A00C228DE /* Hot */ = {
 			isa = PBXGroup;
 			children = (
+				E593A700243EFC2E00C228DE /* View */,
 				E593A6F42438945A00C228DE /* HotViewController.swift */,
 			);
 			path = Hot;
+			sourceTree = "<group>";
+		};
+		E593A700243EFC2E00C228DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E593A701243EFC3F00C228DE /* titleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E593A703243F0EC800C228DE /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				E593A704243F0EE700C228DE /* Helper.swift */,
+				E593A707243F0EE800C228DE /* PageCollectionViewFlowLayout.swift */,
+				E593A708243F0EE800C228DE /* PageContentView.swift */,
+				E593A705243F0EE700C228DE /* PageStyle.swift */,
+				E593A706243F0EE700C228DE /* PageTitleView.swift */,
+				E593A70A243F0EE800C228DE /* PageView.swift */,
+				E593A709243F0EE800C228DE /* PageViewManager.swift */,
+			);
+			path = PageView;
 			sourceTree = "<group>";
 		};
 		FFA985020A69461F2E7E6940 /* Pods */ = {
@@ -558,28 +601,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E593A6FD243EC36A00C228DE /* ZhiHuTool.swift in Sources */,
 				E593A6F9243C79CF00C228DE /* ButtonL.swift in Sources */,
 				E593A6F52438945A00C228DE /* HotViewController.swift in Sources */,
+				E593A710243F0EE800C228DE /* PageViewManager.swift in Sources */,
+				E593A70D243F0EE800C228DE /* PageTitleView.swift in Sources */,
 				E593A6D92435C76500C228DE /* BaseNavigationViewController.swift in Sources */,
+				E593A6FB243D991600C228DE /* viewModel.swift in Sources */,
+				E593A70B243F0EE800C228DE /* Helper.swift in Sources */,
 				E593A6BF2435B73700C228DE /* BaseViewController.swift in Sources */,
 				E593A6F22438942900C228DE /* RecommendViewController.swift in Sources */,
+				E593A70C243F0EE800C228DE /* PageStyle.swift in Sources */,
 				E593A6C62435C51600C228DE /* UIView+Extension.swift in Sources */,
-				E593A6E52437220F00C228DE /* cellHeaderView.swift in Sources */,
 				E51B94092410D40400767270 /* ViewController.swift in Sources */,
 				E593A6EF243893DD00C228DE /* AttentionViewController.swift in Sources */,
 				E51B94072410D40400767270 /* AppDelegate.swift in Sources */,
 				E593A6DF2435EC7C00C228DE /* AttentionModel.swift in Sources */,
+				E593A70E243F0EE800C228DE /* PageCollectionViewFlowLayout.swift in Sources */,
 				E593A6C82435C51600C228DE /* UIDevice+Extension.swift in Sources */,
 				E593A6DB2435E30300C228DE /* AttentionCell.swift in Sources */,
+				E593A711243F0EE800C228DE /* PageView.swift in Sources */,
 				E53585EC24346DCB003D1822 /* HomeViewController.swift in Sources */,
-				E593A6E9243744BD00C228DE /* cellContentView.swift in Sources */,
+				E593A6FF243EF79100C228DE /* RecommendModel.swift in Sources */,
 				E593A6E32436FE6E00C228DE /* ZHApi.swift in Sources */,
 				E53585F1243471CB003D1822 /* BaseTabbarController.swift in Sources */,
 				E593A6F72438A53200C228DE /* AttentionFrame.swift in Sources */,
 				E593A6C52435C51600C228DE /* Date+Extension.swift in Sources */,
 				E593A6C72435C51600C228DE /* UIcolor+Extension.swift in Sources */,
 				E593A6DD2435E36100C228DE /* BaseTableViewCell.swift in Sources */,
+				E593A70F243F0EE800C228DE /* PageContentView.swift in Sources */,
 				E593A6EB243744E000C228DE /* BaseView.swift in Sources */,
+				E593A702243EFC3F00C228DE /* titleView.swift in Sources */,
 				E593A6D72435C53200C228DE /* Const.swift in Sources */,
 				E593A6E724372EB600C228DE /* UIKit+Extension.swift in Sources */,
 			);

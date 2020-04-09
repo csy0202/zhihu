@@ -16,13 +16,13 @@ class AttentionCell: BaseTableViewCell,Reusable{
         didSet
         {
             guard let model = model else { return }
-            header.frame = model.titleViewF
+            header.frame = model.topVM.F
             header.modelF = model
             
-            centerView.frame = model.centerF
+            centerView.frame = model.centerVM.F
             centerView.modelF = model
             
-            bottom.frame = model.bottomF
+            bottom.frame = model.bottomVM.F
             bottom.modelF = model
         }
     }
@@ -39,6 +39,7 @@ class HeaderView: BaseView {
         $0.layer.cornerRadius = 16.5
         $0.layer.masksToBounds = true
         $0.isUserInteractionEnabled = true
+        $0.backgroundColor = UIColor.colorRGB(r: 248, g: 248, b: 248)
     }
     
     let nameL = UILabel().then{
@@ -59,23 +60,23 @@ class HeaderView: BaseView {
     var modelF:AttentionFrame?{
         didSet{
             guard let modelF = modelF else { return }
-            iconIV.set_image(modelF.avatarUrl)
-            iconIV.frame = modelF.avatarF
+            iconIV.set_image(modelF.avatarVM.url)
+            iconIV.frame = modelF.avatarVM.F
             
-            nameL.text = modelF.name
-            nameL.frame = modelF.nameF
+            nameL.text = modelF.nameVM.title
+            nameL.frame = modelF.nameVM.F
             
-            vipImg.isHidden = !modelF.isVip
-            widgetImg.isHidden = !modelF.isVip
-            if modelF.isVip {
-                vipImg.set_image(modelF.vipUrl)
-                vipImg.frame = modelF.vipF
-                widgetImg.set_image(modelF.widgetUrl)
-                widgetImg.frame = modelF.widgetF
+            vipImg.isHidden = !modelF.vipVM.isShow
+            widgetImg.isHidden = !modelF.vipVM.isShow
+            if modelF.vipVM.isShow {
+                vipImg.set_image(modelF.vipVM.url)
+                vipImg.frame = modelF.vipVM.F
+                widgetImg.set_image(modelF.widgetVM.url)
+                widgetImg.frame = modelF.widgetVM.F
             }
             
-            timeL.text = modelF.date
-            timeL.frame = modelF.dateF
+            timeL.text = modelF.dateVM.title
+            timeL.frame = modelF.dateVM.F
         }
     }
     override func configUI(){
@@ -103,18 +104,40 @@ class CenterView: BaseView {
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 4
         $0.layer.masksToBounds = true
+        $0.backgroundColor = UIColor.colorRGB(r: 241, g: 241, b: 241)
+    }
+    
+    let videoImg = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.layer.cornerRadius = 4
+        $0.layer.masksToBounds = true
     }
     
     var modelF:AttentionFrame?{
         didSet{
             guard let modelF = modelF else { return }
-            titleL.text = modelF.title
-            titleL.frame = modelF.titleF
-            subTitle.attributedText = modelF.subTitle
-            subTitle.frame = modelF.subTitleF
-            subTitle.lineBreakMode = .byTruncatingTail
-            rightImg.set_image(modelF.iconUrl)
-            rightImg.frame = modelF.iconF
+            titleL.text = modelF.titleVM.title
+            titleL.frame = modelF.titleVM.F
+            titleL.lineBreakMode = .byTruncatingTail
+            
+            subTitle.isHidden = !modelF.descVM.isShow
+            if modelF.descVM.isShow {
+                subTitle.attributedText = modelF.descVM.attrTitle
+                subTitle.frame = modelF.descVM.F
+                subTitle.lineBreakMode = .byTruncatingTail
+            }
+            
+            rightImg.isHidden = !modelF.imgVM.isShow
+            if modelF.imgVM.isShow {
+                rightImg.set_image(modelF.imgVM.url)
+                rightImg.frame = modelF.imgVM.F
+            }
+            
+            videoImg.isHidden = !modelF.videoVM.isShow
+            if modelF.videoVM.isShow {
+                videoImg.set_image(modelF.videoVM.url)
+                videoImg.frame = modelF.videoVM.F
+            }
         }
     }
     
@@ -122,6 +145,8 @@ class CenterView: BaseView {
         addSubview(titleL)
         addSubview(subTitle)
         addSubview(rightImg)
+        addSubview(videoImg)
+        
     }
 }
 
@@ -135,7 +160,6 @@ class BottomView: BaseView {
     let commentBtn = ButtonL().then {
         $0.setImage(UIImage(named: "comment_count"), for: .normal)
         $0.setTitleColor(UIColor.colorHex(value: 0x8d8d8d), for: .normal)
-//        $0.setTitle("3万", for: .normal)
     }
     
     let moreBtn = UIButton().then {
@@ -143,22 +167,52 @@ class BottomView: BaseView {
         $0.imageView?.contentMode = .center
     }
     
+    let footL = UILabel().then {
+        $0.textColor = .colorHex(value: 0x8d8d8d)
+        $0.font = .systemFont(ofSize: 12)
+    }
+    
+    let closeBtn = UIButton().then {
+        $0.setImage(UIImage(named: "close"), for: .normal)
+        $0.imageView?.contentMode = .center
+    }
+    
     let lineView = UIView().then {
-         $0.backgroundColor = UIColor.colorRGB(r: 245, g: 245, b: 245)
+        $0.backgroundColor = UIColor.colorRGB(r: 245, g: 245, b: 245)
     }
     
     
     var modelF:AttentionFrame?{
         didSet{
             guard let modelF = modelF else { return }
-            voteBtn.frame = modelF.voteBtnF
-            voteBtn.setTitle(modelF.voteBtnTitle, for: .normal)
+            voteBtn.isHidden = !modelF.voteVM.isShow
+            if modelF.voteVM.isShow {
+                voteBtn.frame = modelF.voteVM.F
+                voteBtn.setTitle(modelF.voteVM.title, for: .normal)
+            }
             
-            commentBtn.frame = modelF.commentBtnF
-            commentBtn.setTitle(modelF.commentBtnTitle, for: .normal)
+            commentBtn.isHidden = !modelF.commentVM.isShow
+            if modelF.commentVM.isShow {
+                commentBtn.frame = modelF.commentVM.F
+                commentBtn.setTitle(modelF.commentVM.title, for: .normal)
+            }
             
-            moreBtn.frame = modelF.moreBtnF
+            moreBtn.isHidden = !modelF.moreVM.isShow
+            if modelF.moreVM.isShow {
+                moreBtn.frame = modelF.moreVM.F
+            }
             
+            footL.isHidden = !modelF.footVM.isShow
+            if modelF.footVM.isShow {
+                footL.frame = modelF.footVM.F
+                footL.text = modelF.footVM.title
+            }
+            
+            closeBtn.isHidden = !modelF.closeVM.isShow
+            if modelF.closeVM.isShow {
+                closeBtn.frame = modelF.closeVM.F
+            }
+
             lineView.frame = CGRect(x: 0, y: 40, width: screenWidth, height: 8)
         }
     }
@@ -167,6 +221,8 @@ class BottomView: BaseView {
         addSubview(voteBtn)
         addSubview(commentBtn)
         addSubview(moreBtn)
+        addSubview(footL)
+        addSubview(closeBtn)
         addSubview(lineView)
     }
 }
