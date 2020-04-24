@@ -27,6 +27,7 @@ class ModuleFrame : ModelFrame {
     var cellId = "RecommendedBaseCell"
     var contents  = [ContentFrame]()
     var model :  Module?
+    // collectionView 偏移量
     var collectionOffSet = CGPoint.zero
     override init(model: Any) {
         super.init(model: model)

@@ -27,6 +27,7 @@ class RecommendedBaseCell: BaseTableViewCell {
     
     func configData(moudleF:ModuleFrame){
         self.moudleF = moudleF
+        self.collectionView.setContentOffset(moudleF.collectionOffSet, animated: false)
     }
     /// 注册cell
     func getCell<T>() -> T.Type where T : BaseCollectionViewCell{
@@ -64,12 +65,6 @@ extension RecommendedBaseCell: UICollectionViewDelegate, UICollectionViewDataSou
     /// 点击事件
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        setTargetContentOffset(targetContentOffset: targetContentOffset)
-    }
-    /// 调整f滚动结束位置
-    @objc func setTargetContentOffset(targetContentOffset: UnsafeMutablePointer<CGPoint>){}
-    
     @objc func setNumberOfItemsInSection(section: Int) ->Int{
         return self.moudleF?.contents.count ?? 0
     }
@@ -97,6 +92,16 @@ extension RecommendedBaseCell: UICollectionViewDelegate, UICollectionViewDataSou
         return 10
     }
     
+// MARK: - 滚动处理（collectionView 分页效果处理 contentOffset错位处理）
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        setTargetContentOffset(targetContentOffset: targetContentOffset)
+    }
+    /// 调整f滚动结束位置
+    @objc func setTargetContentOffset(targetContentOffset: UnsafeMutablePointer<CGPoint>){}
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        moudleF?.collectionOffSet = scrollView.contentOffset
+    }
 }
 
 class BaseCollectionViewCell: UICollectionViewCell , Reusable{
