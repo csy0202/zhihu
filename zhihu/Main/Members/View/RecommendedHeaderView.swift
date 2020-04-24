@@ -9,7 +9,7 @@
 import UIKit
 
 class RecommendedHeaderView: BaseView {
-    private lazy var bannerView: UIImageView = {
+    private var bannerView: UIImageView = {
         let iv = UIImageView()
         iv.layer.cornerRadius = 5
         iv.layer.masksToBounds = true
@@ -27,6 +27,12 @@ class RecommendedHeaderView: BaseView {
         return collectionView
     }()
     
+    private var bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor =  .lineColor()
+        return view
+    }()
+    
     var bannerModel : VipBannerModel?{
         didSet{
             guard let bannerModel = bannerModel  else {
@@ -38,19 +44,15 @@ class RecommendedHeaderView: BaseView {
     }
     
     override func configUI() {
-        addSubview(bannerView)
-        bannerView.snp.makeConstraints {
-            $0.top.equalTo(15)
-            $0.left.right.equalToSuperview().inset(15)
-            $0.height.equalTo(bannerView.snp.width).multipliedBy(90.0/340.0)
-        }
         
+        bannerView.frame = CGRect(x: 15, y: 15, width: screenWidth - 30, height: 90)
+        addSubview(bannerView)
+        
+        collectionView.frame = CGRect(x: 0, y: bannerView.frame.maxY, width: screenWidth, height: 90)
         addSubview(collectionView)
-        collectionView.snp.makeConstraints {
-            $0.left.right.equalToSuperview()
-            $0.top.equalTo(bannerView.snp.bottom)
-            $0.height.equalTo(90)
-        }
+        
+        bottomView.frame = CGRect(x: 0, y: collectionView.frame.maxY, width: screenWidth, height: 8)
+        addSubview(bottomView)
     }
 }
 
@@ -66,7 +68,7 @@ extension RecommendedHeaderView: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        delegate?.recommendGuessLikeCellItemClick(model: (self.recommendList?[indexPath.row])!)
+        //        delegate?.recommendGuessLikeCellItemClick(model: (self.recommendList?[indexPath.row])!)
     }
     
     //每个分区的内边距
@@ -79,11 +81,11 @@ extension RecommendedHeaderView: UICollectionViewDelegate, UICollectionViewDataS
         return 5;
     }
     
-//    //最小行间距
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5;
-//    }
-//
+    //    //最小行间距
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    //        return 5;
+    //    }
+    //
     //item 的尺寸
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width:(screenWidth-48)/5,height:70)
@@ -122,7 +124,7 @@ class bannerCell: UICollectionViewCell {
         addSubview(img)
         img.snp.makeConstraints {
             $0.width.height.equalTo(40)
-            $0.top.equalTo(15)
+            $0.top.equalTo(5)
             $0.centerX.equalToSuperview()
         }
         addSubview(titleL)

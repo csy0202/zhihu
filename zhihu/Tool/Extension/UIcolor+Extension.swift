@@ -47,7 +47,7 @@ extension UIColor {
     }
     
     class func lineColor() -> UIColor{
-        return UIColor.colorRGB(c: 230)
+        return UIColor.colorRGB(c: 246)
     }
     class func themeColor() -> UIColor{
         return UIColor.colorRGB(r: 49, g: 149, b: 254)

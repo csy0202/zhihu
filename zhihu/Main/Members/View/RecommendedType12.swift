@@ -14,7 +14,8 @@ class RecommendedType12: RecommendedBaseCell {
         return view
     }()
     
-    override func configUI() {
+    override func configSubviews() {
+        super.configSubviews()
         titleView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 60)
         addSubview(titleView)
         

@@ -13,14 +13,14 @@ class RecommendedType22: RecommendedBaseCell {
         return view
     }()
     
-    override func configUI() {
+    override func configSubviews() {
+        super.configSubviews()
         titleView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 55)
         addSubview(titleView)
         
         collectionView.frame = CGRect(x: 0, y: 55, width: screenWidth, height: sizeModule22.height)
         addSubview(collectionView)
     }
-    
     override func configData(moudleF: ModuleFrame) {
         super.configData(moudleF: moudleF)
         titleView.moduleModel = moudleF.model
@@ -45,6 +45,7 @@ class RecommendedType22: RecommendedBaseCell {
         targetContentOffset.pointee.x = pageSize * CGFloat(page)
     }
 }
+
 class moduleRankCell: BaseCollectionViewCell {
     private var content : UIView = {
         let view = UIView()
@@ -65,7 +66,7 @@ class moduleRankCell: BaseCollectionViewCell {
     private var row1 : RankView!
     private var row2 : RankView!
     private var row3 : RankView!
-
+    
     override func configSubViews() {
         content.frame = CGRect(x: 5, y: 5, width: sizeModule22.width, height: 100)
         addSubview(content)
@@ -74,15 +75,15 @@ class moduleRankCell: BaseCollectionViewCell {
         content.addSubview(img)
         
         row1 = RankView(frame: CGRect(x:50, y: 10, width: content
-        .frame.width - 50, height: 20))
+            .frame.width - 50, height: 20))
         content.addSubview(row1)
         
         row2 = RankView(frame: CGRect(x:50, y: row1.frame.maxY + 10, width: content
-        .frame.width - 50, height: 20))
+            .frame.width - 50, height: 20))
         content.addSubview(row2)
         
         row3 = RankView(frame: CGRect(x:50, y: row2.frame.maxY + 10, width: content
-        .frame.width - 50, height: 20))
+            .frame.width - 50, height: 20))
         content.addSubview(row3)
     }
     override func configData(modelF:ContentFrame?){

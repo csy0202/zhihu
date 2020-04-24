@@ -33,8 +33,8 @@ class RecommendedType24: RecommendedBaseCell {
         btn.layer.masksToBounds = true
         return btn
     }()
-    
-    override func configUI() {
+    override func configSubviews() {
+        super.configSubviews()
         titleL.frame = CGRect(x: 20, y: 20, width: 250, height: 20)
         addSubview(titleL)
         
@@ -44,7 +44,7 @@ class RecommendedType24: RecommendedBaseCell {
         moreBtn.frame = CGRect(x: screenWidth - 90, y: 25, width: 70, height: 30)
         addSubview(moreBtn)
         
-        collectionView.frame = CGRect(x: 0, y: 70, width: screenWidth, height: 275)
+        collectionView.frame = CGRect(x: 0, y: 70, width: screenWidth, height: sizeModule24.height)
         addSubview(collectionView)
     }
      /// 注册cell
@@ -55,7 +55,6 @@ class RecommendedType24: RecommendedBaseCell {
         super.configData(moudleF: moudleF)
         titleL.text = moudleF.model?.title
         subTitleL.text = "点击订阅，第一时间获取免费&特价好内容"
-        collectionView.frame = moudleF.collectionVM.F
         collectionView.reloadData()
     }
     /// 设置item Size

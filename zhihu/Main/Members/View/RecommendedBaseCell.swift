@@ -23,8 +23,37 @@ class RecommendedBaseCell: BaseTableViewCell {
         collectionView.register(getCell().self, forCellWithReuseIdentifier: getCell().reuseIdentifier)
         return collectionView
     }()
-    override func configUI() {}
     
+    private var bottomViewLine: UIView = {
+        let view = UIView()
+        view.backgroundColor =  .lineColor()
+        return view
+    }()
+    
+    private var bottomViewImg: UIImageView = {
+        let img = UIImageView(image: UIImage(named: "bottom"))
+        return img
+    }()
+    
+    var showBottomLine : Bool? {
+        didSet{
+            guard let showBottomLine = showBottomLine  else { return }
+            bottomViewLine.isHidden = !showBottomLine
+            bottomViewImg.isHidden = showBottomLine
+        }
+    }
+    final override func configUI() {
+        configSubviews()
+        addBottomView()
+    }
+    func configSubviews(){}
+    func addBottomView(){
+        bottomViewLine.frame = CGRect(x: 0, y: collectionView.frame.maxY, width: screenWidth, height: 8)
+        addSubview(bottomViewLine)
+        
+        bottomViewImg.frame = CGRect(x: 20, y: collectionView.frame.maxY, width: screenWidth - 40, height: 38)
+        addSubview(bottomViewImg)
+    }
     func configData(moudleF:ModuleFrame){
         self.moudleF = moudleF
         self.collectionView.setContentOffset(moudleF.collectionOffSet, animated: false)

@@ -8,22 +8,42 @@
 
 import Foundation
 import UIKit
-/// 标准模板6  的 size （如何 xxx ?)
-let sizeModule6 = CGSize(width:(screenWidth-50)/2,height:175)
-/// 模板14 的 size （热门推荐)
-let sizeModule14 = sizeModule6
-/// 模板24 的 size （今日限免 & 折扣）
-let sizeModule24 = CGSize(width:(screenWidth-20)/2,height:275)
-/// 模板20 的 size （小说阅读）
-let sizeModule20 = CGSize(width: (screenWidth - 60)/3, height: 225)
+
 /// 模板2 的 size （为你讲书）
 let sizeModule2 = CGSize(width: screenWidth - 40, height: 160)
+let moduleHeight2 : CGFloat = 60 + 160
+
+/// 标准模板6  的 size （如何 xxx ?)
+let sizeModule6 = CGSize(width:(screenWidth-50)/2,height:175)
+let moduleHeight6 : CGFloat = 60 + 175 * 2
+
+/// 模板7 的 size （电子书）
+let sizeModule7 = CGSize(width: (screenWidth - 60)/3, height: 225)
+let moduleHeight7 : CGFloat = 60 + 225
+
 /// 模板12 的 size （精选专题）
 let sizeModule12 = sizeModule2
+let moduleHeight12 : CGFloat = 60 + 160
+
+/// 模板14 的 size （热门推荐)
+let sizeModule14 = sizeModule6
+let moduleHeight14 : CGFloat = 60 + 175
+
+/// 模板20 的 size （小说阅读）
+let sizeModule20 = sizeModule7
+let moduleHeight20 : CGFloat = 60 + 225 * 2
+
 /// 模板22 的 size （盐选榜单）
 let sizeModule22 = CGSize(width: screenWidth - 40, height: 125)
+let moduleHeight22 : CGFloat = 55 + 125
+
+/// 模板24 的 size （今日限免 & 折扣）
+let sizeModule24 = CGSize(width:(screenWidth-20)/2,height:275)
+let moduleHeight24 : CGFloat = 70 + 275
+
+
 class ModuleFrame : ModelFrame {
-    var collectionVM     = viewModel()
+//    var collectionVM     = viewModel()
     var cellId = "RecommendedBaseCell"
     var contents  = [ContentFrame]()
     var model :  Module?
@@ -38,37 +58,31 @@ class ModuleFrame : ModelFrame {
             let contentF = ContentFrame(model: content, type: model.type)
             contents.append(contentF)
         }
-        collectionVM.X = 0
-        collectionVM.Y = 60
-        collectionVM.W = screenWidth
+        
         if model.type == 2 {
             cellId = "RecommendedType2"
-            collectionVM.H = sizeModule2.height
-            height = collectionVM.maxY
+            height = moduleHeight2
         }else if model.type == 6 {
             cellId = "RecommendedType6"
-            collectionVM.H = CGFloat(ceilf(Float(model.contents.count / 2 * 175)))
-            height = collectionVM.maxY
+            height = moduleHeight6
+        }else if model.type == 7 {
+            cellId = "RecommendedType7"
+            height = moduleHeight7
         }else if model.type == 12 {
             cellId = "RecommendedType12"
-            collectionVM.H = sizeModule12.height
-            height = collectionVM.maxY
+            height = moduleHeight12
         }else if model.type == 14 {
             cellId = "RecommendedType14"
-            collectionVM.H = sizeModule14.height
-            height = collectionVM.maxY
-        }else if model.type == 20 || model.type == 7{
+            height = moduleHeight14
+        }else if model.type == 20 {
             cellId = "RecommendedType20"
-            collectionVM.H = CGFloat(ceilf(Float(model.contents.count / 3 * 225)))
-            height = collectionVM.maxY
+            height = moduleHeight20
         }else if model.type == 22 {
             cellId = "RecommendedType22"
-            collectionVM.H = sizeModule22.height
-            height = collectionVM.maxY
+            height = moduleHeight22
         }else if model.type == 24 {
             cellId = "RecommendedType24"
-            collectionVM.H = sizeModule24.height
-            height = collectionVM.maxY
+            height = moduleHeight24
         }else{
             height = 45
         }

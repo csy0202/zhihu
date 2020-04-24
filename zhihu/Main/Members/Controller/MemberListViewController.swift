@@ -12,7 +12,7 @@ import JXSegmentedView
 class MemberListViewController: BaseTableViewController {
     private var bannerView: RecommendedHeaderView = {
         let view = RecommendedHeaderView()
-        view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 195)
+        view.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 198)
         return view
     }()
     
@@ -60,6 +60,7 @@ extension MemberListViewController {
         tableView.register(cellType: RecommendedBaseCell.self)
         tableView.register(cellType: RecommendedType2.self)
         tableView.register(cellType: RecommendedType6.self)
+        tableView.register(cellType: RecommendedType7.self)
         tableView.register(cellType: RecommendedType12.self)
         tableView.register(cellType: RecommendedType14.self)
         tableView.register(cellType: RecommendedType22.self)
@@ -71,8 +72,16 @@ extension MemberListViewController {
         let moduleF = dataArr[indexPath.row] as! ModuleFrame
         let cell = tableView.dequeueReusableCell(withIdentifier: moduleF.cellId, for: indexPath) as! RecommendedBaseCell
         cell.configData(moudleF: moduleF)
+        cell.showBottomLine = indexPath.row % 2 == 0 || indexPath.row == dataArr.count - 1
         cell.textLabel?.text = "\(moduleF.model?.type)"
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let model = dataArr[indexPath.row]
+        let showLine = indexPath.row % 2 == 0 || indexPath.row == dataArr.count - 1
+        let bottomH : CGFloat = showLine ? 8 : 38
+        return model.height + bottomH
     }
 }
 
