@@ -14,6 +14,44 @@ extension UIImageView {
     }
 }
 
+extension String {
+    
+    static func checkIsChinese(string: String) -> Bool {
+        
+        for (_, value) in string.enumerated() {
+            if ("\u{4E00}" <= value  && value <= "\u{9FA5}") {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func urldecodeString () -> String {
+        if !String.checkIsChinese(string: self){
+            return self
+        }
+        return self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    }
+    
+    /// 获取字符串 size
+    /// - Parameters:
+    ///   - font: 字体
+    ///   - size: size
+    ///   - lineSpacing: 行间距 默认0 不设置段落样式
+    ///   - isBold: 是否粗体 默认否
+    func sizeWithRect(fontSize:CGFloat , size:CGSize , lineSpacing : CGFloat = 0 , isBold : Bool = false) -> CGSize {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.alignment = .left
+        let font : UIFont = isBold ? .boldSystemFont(ofSize: fontSize) : .systemFont(ofSize: fontSize)
+        var attributes : [NSAttributedString.Key : Any] = [NSAttributedString.Key.font:font]
+        if lineSpacing != 0 {
+            attributes[NSAttributedString.Key.paragraphStyle] = paragraphStyle
+        }
+        return (self as NSString).boundingRect(with:size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil).size
+    }
+}
+
 //MARK: -定义button相对label的位置
 enum ButtonEdgeInsetsStyle {
     case Top
@@ -32,13 +70,8 @@ extension UIButton {
         var labelWidth: CGFloat! = 0.0
         var labelHeight: CGFloat! = 0.0
         
-        //        if Double(version) >= 8.0 {
         labelWidth = self.titleLabel?.intrinsicContentSize.width
         labelHeight = self.titleLabel?.intrinsicContentSize.height
-        //        }else{
-        //            labelWidth = self.titleLabel?.frame.size.width
-        //            labelHeight = self.titleLabel?.frame.size.height
-        //        }
         
         //初始化imageEdgeInsets和labelEdgeInsets
         var imageEdgeInsets = UIEdgeInsets.zero

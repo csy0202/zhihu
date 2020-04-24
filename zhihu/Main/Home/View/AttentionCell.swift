@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Reusable
-class AttentionCell: BaseTableViewCell,Reusable{
+class AttentionCell: BaseTableViewCell{
     let header = HeaderView()
     let centerView = CenterView()
     let bottom = BottomView()
@@ -89,14 +88,14 @@ class HeaderView: BaseView {
 }
 class CenterView: BaseView {
     let titleL = UILabel().then {
-        $0.font = .systemFont(ofSize: 17)
-        $0.textColor = UIColor.colorHex(value: 0x101010)
+        $0.font = .boldSystemFont(ofSize: 17)
+        $0.textColor = UIColor.titleColor()
         $0.numberOfLines = 2
     }
     
     let subTitle = UILabel().then {
         $0.font = .systemFont(ofSize: 17)
-        $0.textColor = UIColor.colorHex(value: 0x101010)
+        $0.textColor = UIColor.descColor()
         $0.numberOfLines = 0
     }
     
@@ -104,7 +103,7 @@ class CenterView: BaseView {
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 4
         $0.layer.masksToBounds = true
-        $0.backgroundColor = UIColor.colorRGB(r: 241, g: 241, b: 241)
+        $0.backgroundColor = UIColor.lineColor()
     }
     
     let videoImg = UIImageView().then {
@@ -153,13 +152,13 @@ class CenterView: BaseView {
 class BottomView: BaseView {
     let voteBtn = ButtonL().then {
         $0.setImage(UIImage(named: "voteup_count"), for: .normal)
-        $0.setTitleColor(UIColor.colorHex(value: 0x8d8d8d), for: .normal)
+        $0.setTitleColor(UIColor.numColor(), for: .normal)
         $0.setTitle("3万", for: .normal)
     }
     
     let commentBtn = ButtonL().then {
         $0.setImage(UIImage(named: "comment_count"), for: .normal)
-        $0.setTitleColor(UIColor.colorHex(value: 0x8d8d8d), for: .normal)
+        $0.setTitleColor(UIColor.numColor(), for: .normal)
     }
     
     let moreBtn = UIButton().then {
@@ -168,7 +167,7 @@ class BottomView: BaseView {
     }
     
     let footL = UILabel().then {
-        $0.textColor = .colorHex(value: 0x8d8d8d)
+        $0.textColor = .numColor()
         $0.font = .systemFont(ofSize: 12)
     }
     
@@ -178,7 +177,7 @@ class BottomView: BaseView {
     }
     
     let lineView = UIView().then {
-        $0.backgroundColor = UIColor.colorRGB(r: 245, g: 245, b: 245)
+        $0.backgroundColor = UIColor.lineColor()
     }
     
     

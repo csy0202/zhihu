@@ -1,36 +1,35 @@
 PODS:
   - Alamofire (4.9.1)
-  - DNSPageView (1.2.1)
   - EmptyDataSet-Swift (5.0.0)
   - HandyJSON (5.0.2-beta)
   - IQKeyboardManagerSwift (6.5.5)
+  - JXSegmentedView (1.0.6)
   - Kingfisher (4.10.1)
   - MJRefresh (3.3.1)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
-  - Moya/RxSwift (13.0.1):
-    - Moya/Core
-    - RxSwift (~> 4.0)
   - Result (4.1.0)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
   - Reusable/Storyboard (4.1.1)
   - Reusable/View (4.1.1)
-  - RxSwift (4.5.0)
   - SnapKit (4.2.0)
   - SVProgressHUD (2.2.5)
   - Then (2.6.0)
 
 DEPENDENCIES:
-  - DNSPageView
+  - Alamofire
   - EmptyDataSet-Swift
   - HandyJSON (~> 5.0.0-beta.1)
   - IQKeyboardManagerSwift
+  - JXSegmentedView
   - Kingfisher
   - MJRefresh
-  - Moya/RxSwift
+  - Moya
   - Reusable
   - SnapKit
   - SVProgressHUD
@@ -39,36 +38,34 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - DNSPageView
     - EmptyDataSet-Swift
     - HandyJSON
     - IQKeyboardManagerSwift
+    - JXSegmentedView
     - Kingfisher
     - MJRefresh
     - Moya
     - Result
     - Reusable
-    - RxSwift
     - SnapKit
     - SVProgressHUD
     - Then
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  DNSPageView: 1a1972df33a08dbad8e43188da97b31997e1d109
   EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   HandyJSON: e18b035d60cb4847c609a59bb831c5db8c549663
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
+  JXSegmentedView: ceb6fb3a12716408bcd5c4210b93d947d079de25
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MJRefresh: eeda70fbf0ad277f3178cef1cd0c3532591d6237
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
-  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   Then: 90cd104fd951cec1980a03f57704ad8f784d4d79
 
-PODFILE CHECKSUM: a6f8c0827ec3afacef5daf320997a902549013c2
+PODFILE CHECKSUM: b109e1886bd8ccdcdab73143f9418d64bec48bb8
 
 COCOAPODS: 1.9.0

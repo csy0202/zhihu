@@ -8,13 +8,14 @@ target 'zhihu' do
 pod 'SnapKit'
 pod 'Then'
 pod 'Reusable'
-pod 'Moya/RxSwift'
+pod 'Moya'
 pod 'HandyJSON', '~> 5.0.0-beta.1'
 pod 'Kingfisher'
 pod 'MJRefresh'
 pod 'IQKeyboardManagerSwift'
 pod 'EmptyDataSet-Swift'
 pod 'SVProgressHUD'
-pod 'DNSPageView'
+pod 'JXSegmentedView'
+pod 'Alamofire'
 end
 

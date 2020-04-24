@@ -11,10 +11,12 @@ class BaseTabbarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addChildVC(vc: HomeViewController(), title: "首页", imageName: "tabbar_home")
-        addChildVC(vc: HomeViewController(), title: "首页", imageName: "tabbar_home")
-        addChildVC(vc: HomeViewController(), title: "首页", imageName: "tabbar_home")
-        addChildVC(vc: HomeViewController(), title: "首页", imageName: "tabbar_home")
+        addChildVC(vc: MemberViewController(), title: "会员", imageName: "tabbar_vip")
+        addChildVC(vc: HomeViewController(), title: "发现", imageName: "tabbar_find")
+        addChildVC(vc: HomeViewController(), title: "消息", imageName: "tabbar_message")
+        addChildVC(vc: HomeViewController(), title: "我的", imageName: "tabbar_me")
         tabBar.barTintColor = .white
+        tabBar.tintColor = .black
     }
     func addChildVC(vc:UIViewController,title:String,imageName:String){
         vc.tabBarItem.title = title

@@ -1,0 +1,127 @@
+//
+//  RecommendedType.swift
+//  zhihu
+//
+//  Created by 陈淑洋 on 2020/4/20.
+//  Copyright © 2020 chensy. All rights reserved.
+//
+
+import UIKit
+class RecommendedType14: RecommendedBaseCell {
+    
+    private var titleView: cellHeaderView = {
+        let view = cellHeaderView()
+        return view
+    }()
+    
+    override func configUI() {
+        super.configUI()
+        titleView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 60)
+        addSubview(titleView)
+        
+        collectionView.alwaysBounceHorizontal = true
+        addSubview(collectionView)
+    }
+    
+    override func configData(moudleF: ModuleFrame) {
+        super.configData(moudleF: moudleF)
+        titleView.moduleModel = moudleF.model
+        collectionView.frame = moudleF.collectionVM.F
+        collectionView.reloadData()
+    }
+    /// 注册cell
+    override func getCell<T>() -> T.Type where T : BaseCollectionViewCell {
+        return moduleCommonCell.self as! T.Type
+    }
+    /// 设置item Size
+    override func setSizeForItem(indexPath: IndexPath) -> CGSize {
+        return sizeModule14
+    }
+    /// 滚动结束位置
+    override func setTargetContentOffset(targetContentOffset: UnsafeMutablePointer<CGPoint>){
+        let pageSize = sizeModule14.width + 10
+        let page = roundf(Float(targetContentOffset.pointee.x / pageSize))
+        targetContentOffset.pointee.x = pageSize * CGFloat(page)
+    }
+}
+
+class RecommendedType6: RecommendedType14 {
+    
+    override func configUI() {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        collectionView.setCollectionViewLayout(layout, animated: false)
+        collectionView.bounces = false
+        super.configUI()
+    }
+    /// 设置行间距
+    override func setLineSpacing(section: Int) -> CGFloat { return 0 }
+}
+
+class RecommendedType20: RecommendedType6 {
+    /// 设置item Size
+    override func setSizeForItem(indexPath: IndexPath) -> CGSize {
+        return sizeModule20
+    }
+}
+
+/// 通用模板(6 14 20)
+class moduleCommonCell: BaseCollectionViewCell {
+    private var img : UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFill
+        img.layer.cornerRadius = 4
+        img.layer.masksToBounds = true
+        return img
+    }()
+    
+    private var titleL : UILabel = {
+        let lab = UILabel()
+        lab.textColor = UIColor.titleColor()
+        lab.numberOfLines = 2
+        lab.font = UIFont.systemFont(ofSize: 13)
+        return lab
+    }()
+    
+    private var tagL : UILabel = {
+        let lab = UILabel()
+        lab.textColor = UIColor.colorRGB(c: 32)
+        lab.backgroundColor = UIColor.colorRGB(c: 234)
+        lab.font = UIFont.systemFont(ofSize: 9)
+        lab.textAlignment = .center
+        lab.layer.cornerRadius = 4
+        lab.layer.masksToBounds = true
+        lab.layer.maskedCorners = [.layerMinXMinYCorner]
+        return lab
+    }()
+    
+    private var numL : UILabel = {
+        let lab = UILabel()
+        lab.textColor = UIColor.colorRGB(c: 165)
+        lab.font = UIFont.systemFont(ofSize: 11)
+        return lab
+    }()
+    
+    override func configSubViews(){
+        addSubview(img)
+        img.addSubview(tagL)
+        addSubview(titleL)
+        addSubview(numL)
+    }
+    
+    override func configData(modelF: ContentFrame?) {
+        guard let modelF = modelF else { return }
+        self.model = modelF.model
+        img.set_image(modelF.model.artwork)
+        img.frame = modelF.imgVM.F
+        
+        titleL.attributedText = modelF.titleVM.attrTitle
+        titleL.frame = modelF.titleVM.F
+        
+        tagL.text = modelF.tagVM.title
+        tagL.frame = modelF.tagVM.F
+        
+        numL.text = modelF.numVM.title
+        numL.frame = modelF.numVM.F
+    }
+}

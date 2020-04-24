@@ -29,4 +29,29 @@ extension UIColor {
         let blue = CGFloat(arc4random()%256)/255.0
         return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
     }
+    
+    class func colorRGB(c:CGFloat,a:CGFloat = 1.0) -> UIColor{
+        return UIColor(red: c/255.0, green: c/255.0, blue: c/255.0, alpha: a/1.0)
+    }
+    
+    class func titleColor() -> UIColor{
+        return UIColor.black
+    }
+    
+    class func descColor() -> UIColor{
+        return UIColor.colorRGB(c: 52)
+    }
+    
+    class func numColor() -> UIColor{
+        return UIColor.colorRGB(c: 141)
+    }
+    
+    class func lineColor() -> UIColor{
+        return UIColor.colorRGB(c: 230)
+    }
+    class func themeColor() -> UIColor{
+        return UIColor.colorRGB(r: 49, g: 149, b: 254)
+    }
+
+    
 }

@@ -32,7 +32,7 @@ struct Target_zh: HandyJSON {
     var url: String = ""
     var comment_count: Int = 0
     var label_info: Label_info?
-    var author: Auth?
+    var author: User?
     var excerpt: String = ""
     var type: String = ""
     var relationship: Relationship_zh?
@@ -43,7 +43,6 @@ struct Target_zh: HandyJSON {
     var title : String = ""
     var image_url : String = ""
     var voting : Int = 0
-    
 }
 
 struct Thumbnail_extra_info: HandyJSON {
@@ -74,11 +73,11 @@ struct Ld: HandyJSON {
 struct Source: HandyJSON {
     var action_time: Double = 0
     var source_desc: String = ""
-    var actor: Actor?
+    var actor: User?
     var action_text: String = ""
     var action_type: String = ""
 }
-struct Actor: HandyJSON {
+struct User: HandyJSON {
     var user_type: String = ""
     var url_token: String = ""
     var is_followed: Bool = false
@@ -132,22 +131,6 @@ struct Question: HandyJSON {
 
 struct Relationship_zh: HandyJSON {
     var voting: String = ""
-}
-
-struct Auth: HandyJSON {
-    var user_type: String = ""
-    var url_token: String = ""
-    var is_followed: Bool = false
-    var is_org: Bool = false
-    var vip_info: VipInfo?
-    var id: String = ""
-    var name: String = ""
-    var is_following: Bool = false
-    var type: String = ""
-    var headline: String = ""
-    var gender: Int = 0
-    var url: String = ""
-    var avatar_url: String = ""
 }
 
 struct Label_info: HandyJSON {
@@ -213,5 +196,3 @@ struct Brand: HandyJSON {
 struct Cta: HandyJSON {
     var value: String = ""
 }
-
-

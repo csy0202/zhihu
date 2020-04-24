@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-struct AttentionFrame {
+class AttentionFrame: ModelFrame {
     let paragraphStyle = NSMutableParagraphStyle().then{
         $0.lineSpacing = 4
         $0.alignment = .left
@@ -28,7 +28,7 @@ struct AttentionFrame {
     var descVM   = viewModel()
     var imgVM    = viewModel()
     var videoVM  = viewModel()
-
+    
     /// bottomView
     var bottomVM  = viewModel()
     var voteVM    = viewModel()
@@ -37,20 +37,10 @@ struct AttentionFrame {
     var footVM    = viewModel()
     var closeVM   = viewModel()
     
-    
-//    var bottomF = CGRect.zero
-//
-//    var voteBtnF = CGRect.zero
-//    var voteBtnTitle = ""
-//    var commentBtnF = CGRect.zero
-//    var commentBtnTitle = ""
-//    var moreBtnF = CGRect.zero
-    
-    var height : CGFloat = 0
     var model:Article?
-    
-    init(model:Article) {
-        self.model = model
+    override init(model: Any) {
+        super.init(model: model)
+        self.model = model as? Article
         guard let model = self.model else { return }
         
         getTitleViewFrame(model: model)
@@ -61,7 +51,7 @@ struct AttentionFrame {
         
     }
     
-    mutating func getTitleViewFrame(model:Article){
+    func getTitleViewFrame(model:Article){
         
         let marginTop :CGFloat = 16
         if model.type == "moments_feed" {
@@ -78,7 +68,7 @@ struct AttentionFrame {
         }
         avatarVM.F = CGRect(x: 14, y: marginTop, width: 33, height: 33)
         
-        nameVM.W = (nameVM.title as NSString).boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: 15), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)], context: nil).width
+        nameVM.W = nameVM.title.sizeWithRect(fontSize: 14, size: CGSize(width: CGFloat(MAXFLOAT), height: 15)).width
         nameVM.F = CGRect(x: avatarVM.F.maxX + 8, y: marginTop, width: nameVM.W, height: 15)
         
         if vipVM.isShow {
@@ -94,7 +84,7 @@ struct AttentionFrame {
         topVM.F = CGRect(x: 0, y: 0, width: screenWidth, height: 60)
     }
     
-    mutating func getCenterViewFrame(model:Article){
+    func getCenterViewFrame(model:Article){
         titleVM.title = "未知类型title:\(String(describing: model.target?.type))"
         
         let contentW = screenWidth - 28
@@ -109,7 +99,7 @@ struct AttentionFrame {
             }else if model.target?.type == "article" {
                 titleVM.title = model.target?.title ?? ""
             }
-            let titleH = (titleVM.title as NSString).boundingRect(with: CGSize(width: contentW, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)], context: nil).height
+            let titleH = titleVM.title.sizeWithRect(fontSize: 17, size: CGSize(width: contentW, height: CGFloat(MAXFLOAT)), isBold: true).height
             titleVM.H = min(titleH, 41)
             titleVM.W = contentW
             titleVM.Y = 0
@@ -141,12 +131,13 @@ struct AttentionFrame {
                 }
             }
             
-            let subTitleH = (temp.1 as NSString).boundingRect(with: CGSize(width: descVM.W, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15),NSAttributedString.Key.paragraphStyle:paragraphStyle], context: nil).height
+            let subTitleH = temp.1.sizeWithRect(fontSize: 15, size: CGSize(width: descVM.W, height: CGFloat(MAXFLOAT)), lineSpacing: 4).height
             descVM.H = min(subTitleH, 67)
             centerVM.H = descVM.maxY
             
             if videoVM.isShow {
                 videoVM.Y = descVM.maxY + 10
+                centerVM.H = videoVM.maxY
             }
         }else{
             titleVM.title = model.ad?.creatives[0].title ?? ""
@@ -185,11 +176,11 @@ struct AttentionFrame {
                 }
             }
             
-            let titleH = (titleVM.title as NSString).boundingRect(with: CGSize(width: titleVM.W, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 17)], context: nil).height
+            let titleH = titleVM.title.sizeWithRect(fontSize: 17, size: CGSize(width: titleVM.W, height: CGFloat(MAXFLOAT)), isBold: true).height
             titleVM.H = min(titleH, 41)
             centerVM.H = titleVM.maxY
             if descVM.isShow {
-                let subTitleH = (descVM.title as NSString).boundingRect(with: CGSize(width: descVM.W, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15),NSAttributedString.Key.paragraphStyle:paragraphStyle], context: nil).height
+                let subTitleH = descVM.title.sizeWithRect(fontSize: 15, size: CGSize(width: descVM.W, height: CGFloat(MAXFLOAT)), lineSpacing: 4).height
                 descVM.H = min(subTitleH, 67)
                 descVM.Y = titleVM.maxY + 10
                 centerVM.H = descVM.maxY
@@ -215,14 +206,14 @@ struct AttentionFrame {
             }
         }
         
-        titleVM.getFrame()
-        if descVM.isShow { descVM.getFrame()}
-        if imgVM.isShow { imgVM.getFrame()}
-        if videoVM.isShow { videoVM.getFrame()}
+        //        titleVM.getFrame()
+        //        if descVM.isShow { descVM.getFrame()}
+        //        if imgVM.isShow { imgVM.getFrame()}
+        //        if videoVM.isShow { videoVM.getFrame()}
         centerVM.F = CGRect(x: 0, y: topVM.F.maxY, width: screenWidth, height: centerVM.H)
     }
     
-    mutating func getBottomViewFrame(model:Article){
+    func getBottomViewFrame(model:Article){
         voteVM.isShow = false
         commentVM.isShow = false
         moreVM.isShow = false
@@ -246,7 +237,7 @@ struct AttentionFrame {
                 if model.ad?.creatives[0].thumbnail_extra_info?.type == "video"  {
                     footVM.title = getBtnTitle(count: model.ad?.creatives[0].video_watch_num) + "人观看·" + footVM.title
                 }else{
-                   footVM.title = "AppStore 评分：" + String(format: "%.1f", appInfo.score) + "·" + footVM.title
+                    footVM.title = "AppStore 评分：" + String(format: "%.1f", appInfo.score) + "·" + footVM.title
                 }
             }
             footVM.F = CGRect(x: 14, y: 5, width: 250, height: 35)
@@ -272,7 +263,7 @@ struct AttentionFrame {
         
         return (attr , str2)
     }
-
+    
     func getBtnTitle(count:Int?) -> String{
         var voteCount = Double(count ?? 0)
         var title = String(format: "%.0f",voteCount)

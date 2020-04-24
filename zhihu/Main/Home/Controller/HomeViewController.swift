@@ -7,12 +7,11 @@
 //
 
 import UIKit
-//import Then
-//import MJRefresh
-//import SnapKit
-import DNSPageView
+import JXSegmentedView
+import Alamofire
+import Moya
 class HomeViewController: BaseViewController {
-
+    
     let titleBtn = UIButton().then {
         $0.size = CGSize(width: 245, height: 35)
         $0.backgroundColor = UIColor.colorHex(value: 0xF0F0F0)
@@ -23,10 +22,12 @@ class HomeViewController: BaseViewController {
         $0.layer.cornerRadius = 4.0
         $0.layer.masksToBounds = true
     }
+    
+    let segmentedView = JXSegmentedView()
+    var segmentedDataSource: SYSegmentMixDataSource!
     override func configUI() {
         configNavi()
         configPageView()
-        
     }
     /// 导航栏配置
     func configNavi(){
@@ -35,38 +36,59 @@ class HomeViewController: BaseViewController {
         navigationItem.titleView = titleBtn
     }
     func configPageView(){
-        let style = PageStyle()
-        style.isTitleViewScrollEnabled = true
-        style.titleMargin = 50
-        style.titleColor = UIColor.colorRGB(r: 155, g: 155, b: 155)
-        style.titleSelectedColor = UIColor.colorRGB(r: 26, g: 26, b: 26)
+        segmentedDataSource = SYSegmentMixDataSource()
+        segmentedDataSource.imageSize = CGSize.zero
+        segmentedDataSource.isTitleColorGradientEnabled = true
+        segmentedDataSource.titleNormalColor = UIColor.colorRGB(c: 126)
+        segmentedDataSource.titleSelectedColor = UIColor.black
+        segmentedDataSource.titleNormalFont = UIFont.boldSystemFont(ofSize: 14)
+        segmentedDataSource.titles = ["关注", "推荐", "热榜", "抗击肺炎"]
+        segmentedView.dataSource = segmentedDataSource
+        segmentedView.delegate = self
+        segmentedView.isContentScrollViewClickTransitionAnimationEnabled = false
+        view.addSubview(segmentedView)
         
-        style.titleViewHeight = 30
-        style.isShowBottomLine = true
-        style.bottomLineHeight = 3
-        style.bottomLineColor = UIColor.colorRGB(r: 26, g: 26, b: 26)
-        //               style.isTitleScaleEnabled = true
+        let indicator = JXSegmentedIndicatorRainbowLineView()
+        indicator.indicatorWidth = JXSegmentedViewAutomaticDimension
+        indicator.indicatorColors = [.black, .black, .black, UIColor.themeColor()]
         
-        // 设置标题内容
-        let titles = ["关注", "推荐", "热榜", "抗击肺炎"]
+        segmentedView.indicators = [indicator]
         
-        // 创建每一页对应的controller
-        let childViewControllers: [UIViewController] = titles.map { _ -> UIViewController in
-            let controller = AttentionViewController()
-            addChild(controller)
-            return controller
-        }
+        let listContainerView = JXSegmentedListContainerView(dataSource: self)
+        segmentedView.listContainer = listContainerView
+        view.addSubview(listContainerView)
         
-        let y:CGFloat = 0
-        //        UIApplication.shared.statusBarFrame.height + (navigationController?.navigationBar.frame.height ?? 0)
-        let size = UIScreen.main.bounds.size
+        segmentedView.frame = CGRect(x: 0, y: 0, width: screenWidth, height: 30)
+        listContainerView.frame = CGRect(x: 0, y: 30, width: screenWidth, height: screenHeight - kTabbarH - kNaviH - 30)
         
-        // 创建对应的PageView，并设置它的frame
-        // titleView和contentView会连在一起
-        let pageView = PageView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height - kNaviH - kTabbarH), style: style, titles: titles, childViewControllers: childViewControllers)
-        view.addSubview(pageView)
+        
+        let lineWidth = 1/UIScreen.main.scale
+        let lineLayer = CALayer()
+        lineLayer.backgroundColor = UIColor.lineColor().cgColor
+        lineLayer.frame = CGRect(x: 0, y: segmentedView.bounds.height - lineWidth, width: segmentedView.bounds.width, height: lineWidth)
+        segmentedView.layer.addSublayer(lineLayer)
     }
-    @objc func clickLeft(){
-        
+    @objc func clickLeft(){}
+}
+
+extension HomeViewController: JXSegmentedListContainerViewDataSource {
+    func numberOfLists(in listContainerView: JXSegmentedListContainerView) -> Int {
+        if let titleDataSource = segmentedView.dataSource as? SYSegmentMixDataSource {
+            return titleDataSource.dataSource.count
+        }
+        return 0
+    }
+    
+    func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
+        if index == 2 {
+            return HotViewController()
+        }else if index == 3 {
+            let vc = BaseWebViewController()
+            vc.url = "https://www.zhihu.com/special/19681091"
+            return vc
+        }
+        return AttentionViewController()
     }
 }
+
+extension HomeViewController: JXSegmentedViewDelegate {}

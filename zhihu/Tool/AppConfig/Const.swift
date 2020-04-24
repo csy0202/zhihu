@@ -20,11 +20,17 @@ let isFullScreen : Bool = UIDevice.current.isX()
 //  navbar高度
 let kNaviH : CGFloat = UIDevice.current.isX() ? 88.0 : 64.0
 //  tabbar高度
+let kStatusBarH : CGFloat = UIDevice.current.isX() ? 44.0 : 20.0
+//  tabbar高度
 let kTabbarH : CGFloat = UIDevice.current.isX() ? 83.0 : 49.0
 /// 屏幕的宽度
 let screenWidth = UIScreen.main.bounds.width
 /// 屏幕的高度
 let screenHeight = UIScreen.main.bounds.height
+
+
+
+
 
 
 
