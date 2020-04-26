@@ -33,6 +33,10 @@ let moduleHeight14 : CGFloat = 60 + 175
 let sizeModule20 = sizeModule7
 let moduleHeight20 : CGFloat = 60 + 225 * 2
 
+// 模板21 的 size （Live 直播中）
+var sizeModule21 = CGSize(width: screenWidth - 20, height: 103)
+let moduleHeight21 : CGFloat = 103
+
 /// 模板22 的 size （盐选榜单）
 let sizeModule22 = CGSize(width: screenWidth - 40, height: 125)
 let moduleHeight22 : CGFloat = 55 + 125
@@ -77,6 +81,11 @@ class ModuleFrame : ModelFrame {
         }else if model.type == 20 {
             cellId = "RecommendedType20"
             height = moduleHeight20
+        }else if model.type == 21 {
+           let w : CGFloat = model.contents.count > 1 ? 30 : 20
+            sizeModule21 = CGSize(width: screenWidth - w, height: 103)
+            cellId = "RecommendedType21"
+            height = moduleHeight21
         }else if model.type == 22 {
             cellId = "RecommendedType22"
             height = moduleHeight22
@@ -98,7 +107,6 @@ class ContentFrame : ModelFrame {
 
     var imgVM     = viewModel()
     var titleVM   = viewModel()
-    var tagVM     = viewModel()
     var numVM     = viewModel()
     var model     : Content!
     var type      : Int!
@@ -111,7 +119,7 @@ class ContentFrame : ModelFrame {
         self.type = type
         
         
-        if type == 2 || type == 12 { return }
+        if type == 2 || type == 12 || type == 21 { return }
         
         if type == 22 {
             if model.rank_name == "HOTTEST" {
@@ -145,7 +153,7 @@ class ContentFrame : ModelFrame {
         // 底部章节数据 | 作者
         var numTitle = model.chapter_text ?? ""
         if model.duration_text?.count ?? 0 > 0 {
-            numVM.title += " | \(model.duration_text!)"
+            numTitle += " | \(model.duration_text!)"
         }
         
         if type == 20 || type == 7 {// 网络文学
@@ -160,13 +168,8 @@ class ContentFrame : ModelFrame {
         imgVM.W = itemW
         imgVM.H = imgH
         imgVM.url = model.artwork ?? ""
-        
-        /// tag
-        tagVM.title = tagTitle
-        tagVM.H = 16
-        tagVM.W = tagVM.title.sizeWithRect(fontSize: 10, size: CGSize(width: CGFloat(MAXFLOAT), height: tagVM.H)).width + 10
-        tagVM.X = itemW - tagVM.W + 1
-        tagVM.Y = imgVM.H - tagVM.H
+        imgVM.title = tagTitle
+
         
         /// 标题
         titleVM.X = 0

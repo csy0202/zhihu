@@ -35,17 +35,8 @@ class cellHeaderView: BaseView {
     override func configUI() {
         titleL.frame = CGRect(x: 20, y: 25, width: 250, height: 20)
         addSubview(titleL)
-        titleL.snp.makeConstraints {
-            $0.left.equalTo(20)
-            $0.top.equalTo(25)
-            $0.height.equalTo(20)
-        }
+
         moreBtn.frame = CGRect(x: screenWidth-80, y: 25, width: 60, height: 20)
         addSubview(moreBtn)
-//        moreBtn.snp.makeConstraints {
-//            $0.right.equalTo(-20)
-//            $0.top.equalTo(25)
-//            $0.height.equalTo(20)
-//        }
     }
 }

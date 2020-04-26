@@ -44,7 +44,7 @@ class RecommendedHeaderView: BaseView {
     }
     
     override func configUI() {
-        
+        backgroundColor = .white
         bannerView.frame = CGRect(x: 15, y: 15, width: screenWidth - 30, height: 90)
         addSubview(bannerView)
         

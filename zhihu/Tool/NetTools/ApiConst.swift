@@ -25,6 +25,8 @@ struct Api {
     static let marketVipRecommendHeader = "/market/vip_recommend/header"
     /// 会员 - 热门推荐
     static let marketVipRecommendCategories = "/market/vip_recommend/categories"
+    /// 会员 - 发现更多
+    static let marketRecommendationsInterest = "/market/recommendations/interest"
 }
 
 let baseUrl = "https://api.zhihu.com"

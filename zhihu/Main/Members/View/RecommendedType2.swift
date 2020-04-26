@@ -17,14 +17,10 @@ class RecommendedType2: RecommendedType12 {
 
 // MARK: - 模板2 collectionViewCell
 class moduleReadCell: BaseCollectionViewCell {
-    private var img : UIImageView = {
-           let img = UIImageView()
-           img.contentMode = .scaleAspectFill
-           img.layer.cornerRadius = 4
-           img.layer.masksToBounds = true
-           return img
-       }()
-    
+    private let img :RecommendedImageView = {
+        let img  = RecommendedImageView(frame:CGRect.zero)
+        return img
+    }()
     private var tagL : UILabel = {
         let lab = UILabel()
         lab.textColor = UIColor.colorRGB(c: 32)
@@ -90,8 +86,23 @@ class moduleReadCell: BaseCollectionViewCell {
         guard let modelF = modelF else { return }
         self.model = modelF.model
         img.set_image(modelF.model.artwork)
-        titleL.text = modelF.model.title
-        authL.text = "讲者：" + modelF.model.authors[0].name
-        detailL.text = modelF.model.summary
+        if modelF.model.authors.count > 0 {
+            img.frame = CGRect(x: 0, y: 0, width: 105, height: 140)
+            img.vipImgUrl = modelF.model.icons?.left_top_day_icon
+            img.tagTitle = "讲书"
+            titleL.isHidden = false
+            authL.isHidden = false
+            detailL.isHidden = false
+            tagL.isHidden = false
+            titleL.text = modelF.model.title
+            authL.text = "讲者：" + modelF.model.authors[0].name
+            detailL.text = modelF.model.summary
+        }else{
+            titleL.isHidden = true
+            authL.isHidden = true
+            detailL.isHidden = true
+            tagL.isHidden = true
+            img.frame = CGRect(x: 0, y: 0, width: sizeModule2.width, height: 140)
+        }
     }
 }

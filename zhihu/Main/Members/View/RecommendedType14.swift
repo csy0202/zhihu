@@ -79,11 +79,8 @@ class RecommendedType7: RecommendedType20 {
 
 /// 通用模板(6 7 14 20)
 class moduleCommonCell: BaseCollectionViewCell {
-    private var img : UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFill
-        img.layer.cornerRadius = 4
-        img.layer.masksToBounds = true
+    private let img :RecommendedImageView = {
+        let img  = RecommendedImageView(frame:CGRect.zero)
         return img
     }()
     
@@ -94,18 +91,7 @@ class moduleCommonCell: BaseCollectionViewCell {
         lab.font = UIFont.systemFont(ofSize: 13)
         return lab
     }()
-    
-    private var tagL : UILabel = {
-        let lab = UILabel()
-        lab.textColor = UIColor.colorRGB(c: 32)
-        lab.backgroundColor = UIColor.colorRGB(c: 234)
-        lab.font = UIFont.systemFont(ofSize: 9)
-        lab.textAlignment = .center
-        lab.layer.cornerRadius = 4
-        lab.layer.masksToBounds = true
-        lab.layer.maskedCorners = [.layerMinXMinYCorner]
-        return lab
-    }()
+
     
     private var numL : UILabel = {
         let lab = UILabel()
@@ -116,7 +102,6 @@ class moduleCommonCell: BaseCollectionViewCell {
     
     override func configSubViews(){
         addSubview(img)
-        img.addSubview(tagL)
         addSubview(titleL)
         addSubview(numL)
     }
@@ -126,12 +111,11 @@ class moduleCommonCell: BaseCollectionViewCell {
         self.model = modelF.model
         img.set_image(modelF.model.artwork)
         img.frame = modelF.imgVM.F
+        img.vipImgUrl = modelF.model.icons?.left_top_day_icon
+        img.tagTitle = modelF.imgVM.title
         
         titleL.attributedText = modelF.titleVM.attrTitle
         titleL.frame = modelF.titleVM.F
-        
-        tagL.text = modelF.tagVM.title
-        tagL.frame = modelF.tagVM.F
         
         numL.text = modelF.numVM.title
         numL.frame = modelF.numVM.F

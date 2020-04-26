@@ -43,7 +43,7 @@ struct Sub_webs: HandyJSON {
     var url: String = ""
 }
 
-/// 会员推荐模板
+//MARK: - 会员推荐模板
 struct VipModuleList: HandyJSON {
     var vip_promotion_strip: Promotion?
     var module_list = [Module]()
@@ -93,9 +93,26 @@ struct Content: HandyJSON {
     var interest_count: Int = 0
     var has_subscribed: Bool = false
     
+    var new_editor: Bool = false
+    var url: String?
+    
     // type 22 (盐选榜单)
     var rank_name : String?
     var data = [RankData]()
+    
+    // type 21 (直播)
+    var speaker: Speaker?
+    var is_vip_free: Bool = false
+    var live_type: String?
+    var starts_at: Int = 0
+    var heat: Int = 0
+    var has_reserved: Bool = false
+    var subject: String?
+    var on_top: Bool = false
+    var has_ownership: Bool = false
+    var list_artwork: String?
+    var type: String?
+    var room_status: String?
 }
 
 struct RankData : HandyJSON {
@@ -129,5 +146,78 @@ struct RankData : HandyJSON {
     var interest_count: Int = 0
     var author_desc: String?
     var media_type: String?
+    
 }
 
+
+// MARK:- 发现更多
+struct VipMoreListModel: HandyJSON {
+    var data = [VipMoreItemModel]()
+    var paging: Paging?
+}
+
+struct VipMoreItemModel: HandyJSON {
+    var chapter_text: String?
+    var online_time: Int = 0
+    var title: String?
+    var button_info: Button_info?
+    var resource_rights = [Resource_rights]()
+    var svip_privileges: Bool = false
+    var interest_count: Int = 0
+    var author_desc: String?
+    var artwork: String?
+    var producer: String?
+    var is_purchased: Bool = false
+    var description: String?
+    var duration_text: String?
+    var icons: iconImg?
+    var chapter: Int = 0
+    var media_type: String?
+    var summary: String?
+    var tag_before_title: String?
+    var business_id: String?
+    var badge = [String]()
+    var sku_id: String?
+    var image = [String]()
+    var author = [String]()
+    var tab_artwork: String?
+    var tag: String?
+    var price: Int = 0
+    var process_text: String?
+    var online_time_text: String?
+    var duration: Int = 0
+    var subcategory: String?
+    var promotion_price: Int = 0
+    var ownership: Bool = false
+}
+
+struct Button_info: HandyJSON {
+    var is_dash: Bool = false
+    var desc: String?
+    var button_text: String?
+}
+
+struct Resource_rights: HandyJSON {
+    var left_top_night_icon: String?
+    var id: Int = 0
+    var subscription_id: Int = 0
+    var left_top_day_icon: String?
+    var type: Int = 0
+    var price: Int = 0
+    var subscription_name: String?
+    var discount: Int = 0
+}
+
+
+struct Speaker: HandyJSON {
+    var member: Member?
+}
+
+struct Member: HandyJSON {
+    var name: String?
+    var url_token: String?
+    var avatar_url: String?
+    var user_type: String?
+    var headline: String?
+    var url: String?
+}

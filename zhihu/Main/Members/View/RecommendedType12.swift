@@ -48,11 +48,8 @@ class RecommendedType12: RecommendedBaseCell {
 // MARK: - 模板12 collectionViewCell
 class moduleImgCell: BaseCollectionViewCell {
     
-    private var img : UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFill
-        img.layer.cornerRadius = 4
-        img.layer.masksToBounds = true
+    private let img :RecommendedImageView = {
+        let img  = RecommendedImageView(frame:CGRect.zero)
         return img
     }()
 
@@ -65,6 +62,8 @@ class moduleImgCell: BaseCollectionViewCell {
         guard let modelF = modelF else { return }
         self.model = modelF.model
         img.set_image(modelF.model.artwork)
+        img.vipImgUrl = modelF.model.icons?.left_top_day_icon
+        img.tagTitle = modelF.imgVM.title
     }
 }
 
