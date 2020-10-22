@@ -16,6 +16,14 @@ class MemberListViewController: BaseTableViewController {
         return view
     }()
     
+    private var footerView : UIImageView = {
+        let footView = UIImageView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 153))
+        footView.image = UIImage(named: "footView")
+        footView.backgroundColor = UIColor.lineColor()
+        footView.contentMode = .center
+        return footView
+    }()
+    
     var bannerModel:VipBannerModel?
     var moduleList : VipModuleList?
     var moreList = [VipMoreCellFrame]()
@@ -62,8 +70,10 @@ class MemberListViewController: BaseTableViewController {
             self.isEnd = moreListArr?.paging?.is_end ?? false
             if self.isEnd {
                 self.tableView.mj_footer?.endRefreshingWithNoMoreData()
+                self.tableView.tableFooterView = self.footerView
             }else{
                 self.downPara = String.getParameter(url: moreListArr?.paging?.next)
+                self.tableView.tableFooterView = UIView()
             }
             self.upPara = String.getParameter(url: moreListArr?.paging?.previous)
             self.isLoad = false

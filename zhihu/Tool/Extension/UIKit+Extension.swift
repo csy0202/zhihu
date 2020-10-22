@@ -39,7 +39,7 @@ extension String {
     ///   - size: size
     ///   - lineSpacing: 行间距 默认0 不设置段落样式
     ///   - isBold: 是否粗体 默认否
-    func sizeWithRect(fontSize:CGFloat , size:CGSize , lineSpacing : CGFloat = 0 , isBold : Bool = false) -> CGSize {
+    func sizeWithRect(fontSize:CGFloat , size:CGSize , lineSpacing : CGFloat = 0 , isBold : Bool = false ) -> CGSize {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         paragraphStyle.alignment = .left

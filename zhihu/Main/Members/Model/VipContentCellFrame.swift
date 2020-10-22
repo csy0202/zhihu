@@ -47,7 +47,6 @@ let moduleHeight24 : CGFloat = 70 + 275
 
 
 class ModuleFrame : ModelFrame {
-//    var collectionVM     = viewModel()
     var cellId = "RecommendedBaseCell"
     var contents  = [ContentFrame]()
     var model :  Module?
@@ -82,7 +81,7 @@ class ModuleFrame : ModelFrame {
             cellId = "RecommendedType20"
             height = moduleHeight20
         }else if model.type == 21 {
-           let w : CGFloat = model.contents.count > 1 ? 30 : 20
+            let w : CGFloat = model.contents.count > 1 ? 30 : 20
             sizeModule21 = CGSize(width: screenWidth - w, height: 103)
             cellId = "RecommendedType21"
             height = moduleHeight21
@@ -104,7 +103,7 @@ class ContentFrame : ModelFrame {
         $0.lineSpacing = 4
         $0.alignment = .left
     }
-
+    
     var imgVM     = viewModel()
     var titleVM   = viewModel()
     var numVM     = viewModel()
@@ -169,19 +168,31 @@ class ContentFrame : ModelFrame {
         imgVM.H = imgH
         imgVM.url = model.artwork ?? ""
         imgVM.title = tagTitle
-
+        
         
         /// 标题
         titleVM.X = 0
         titleVM.Y = imgVM.maxY + 8
         titleVM.W = itemW
-        let title = model.title ?? ""
+        var title = model.title ?? ""
+        
+        let attrTitle =  NSMutableAttributedString(string: title)
+        attrTitle.addAttributes([NSAttributedString.Key.font:UIFont.systemFont(ofSize: 13),NSMutableAttributedString.Key.foregroundColor : UIColor.titleColor()], range: NSRange(location: 0, length: title.count))
+        if model.tag_before_title == "自制" {
+            let attchment = NSTextAttachment()
+            attchment.bounds = CGRect(x: 0, y: -3, width: 26, height: 13)
+            attchment.image = UIImage(named: "title_custom")
+            let att = NSAttributedString(attachment: attchment)
+            attrTitle.insert(att, at: 0)
+            title += "自制"
+        }
+        
+        attrTitle.addAttributes([NSAttributedString.Key.paragraphStyle:paragraphStyle], range: NSRange(location: 0, length: attrTitle.length))
+        titleVM.attrTitle = attrTitle
+        
         let titleH = title.sizeWithRect(fontSize: 13, size: CGSize(width: titleVM.W, height: CGFloat(MAXFLOAT)), lineSpacing: 4).height
         titleVM.H = min(titleH, 40)
         
-        let attrTitle =  NSMutableAttributedString(string: title)
-        attrTitle.addAttributes([NSAttributedString.Key.font:UIFont.systemFont(ofSize: 13),NSMutableAttributedString.Key.foregroundColor : UIColor.titleColor(),NSAttributedString.Key.paragraphStyle:paragraphStyle], range: NSRange(location: 0, length: title.count))
-        titleVM.attrTitle = attrTitle
         
         /// 章节数据
         numVM.X = 0

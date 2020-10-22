@@ -64,7 +64,7 @@ class MemberViewController: BaseViewController {
     
     @objc func clickLeft(){}
     
-     func getVipTitleLists() {
+    func getVipTitleLists() {
         Network.request(api: Api.marketHeader, parame: [:], success: { (result) in
             self.headerModel = VipHeaderModel.deserialize(from: result)
             self.getTitls()
@@ -96,7 +96,13 @@ extension MemberViewController: JXSegmentedListContainerViewDataSource {
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-
+        if index == 1 {
+            return HotViewController()
+        }else if index == 2 {
+            let vc = BaseWebViewController()
+            vc.url = "https://www.zhihu.com/xen/market/vip/book-club"
+            return vc
+        }
         return MemberListViewController()
     }
 }

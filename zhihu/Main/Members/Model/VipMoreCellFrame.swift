@@ -33,22 +33,33 @@ class VipMoreCellFrame : ModelFrame {
         titleVM.X = imgVM.maxX + 10
         titleVM.Y = 2
         titleVM.W = screenWidth - imgVM.W - 50
-        let title = model.title ?? ""
+        var title = model.title ?? ""
+        let attrTitle =  NSMutableAttributedString(string: title)
+        attrTitle.addAttributes([NSAttributedString.Key.font:UIFont.systemFont(ofSize: 13),NSMutableAttributedString.Key.foregroundColor : UIColor.titleColor()], range: NSRange(location: 0, length: title.count))
+        if model.tag_before_title == "自制" {
+            let attchment = NSTextAttachment()
+            attchment.bounds = CGRect(x: 0, y: -3, width: 26, height: 13)
+            attchment.image = UIImage(named: "title_custom")
+            let att = NSAttributedString(attachment: attchment)
+            attrTitle.insert(att, at: 0)
+            title += "自制"
+        }
+        
+        attrTitle.addAttributes([NSAttributedString.Key.paragraphStyle:paragraphStyle], range: NSRange(location: 0, length: attrTitle.length))
+        titleVM.attrTitle = attrTitle
+        
         let titleH = title.sizeWithRect(fontSize: 13, size: CGSize(width: titleVM.W, height: CGFloat(MAXFLOAT)), lineSpacing: 4).height
         titleVM.H = min(titleH, 40)
         
-        let attrTitle =  NSMutableAttributedString(string: title)
-        attrTitle.addAttributes([NSAttributedString.Key.font:UIFont.systemFont(ofSize: 13),NSMutableAttributedString.Key.foregroundColor : UIColor.titleColor(),NSAttributedString.Key.paragraphStyle:paragraphStyle], range: NSRange(location: 0, length: title.count))
-        titleVM.attrTitle = attrTitle
-        
         /// 章节数据
-        
-        var numTitle = model.description ?? ""
-        if numTitle.count == 0 {
-            numTitle = model.duration_text ?? ""
-            if model.chapter_text?.count ?? 0 > 0 {
-                numTitle += " | \(model.chapter_text!)"
-            }
+        var numTitle = model.duration_text ?? ""
+        let chapter_text = model.chapter_text ?? ""
+        if numTitle.count > 0  && chapter_text.count > 0{
+            numTitle += " | \(chapter_text)"
+        }else if chapter_text.count > 0{
+            numTitle = chapter_text
+        }else if numTitle.count == 0{
+            numTitle = model.summary ?? ""
         }
         
         numVM.X = titleVM.X
@@ -56,7 +67,6 @@ class VipMoreCellFrame : ModelFrame {
         numVM.W = titleVM.W
         numVM.H = 14
         numVM.title =  numTitle
-        
         
         let price = model.button_info?.button_text ?? "" + " 知乎币"
         let str = "原价："

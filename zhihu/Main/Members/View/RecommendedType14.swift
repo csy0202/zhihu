@@ -116,6 +116,7 @@ class moduleCommonCell: BaseCollectionViewCell {
         
         titleL.attributedText = modelF.titleVM.attrTitle
         titleL.frame = modelF.titleVM.F
+        titleL.lineBreakMode = .byTruncatingTail
         
         numL.text = modelF.numVM.title
         numL.frame = modelF.numVM.F

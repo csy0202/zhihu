@@ -16,7 +16,7 @@ class BaseTableViewController: BaseViewController {
     let tableView = UITableView()
     var isEnd = false
     override func configUI() {
-        view.backgroundColor = .lineColor()
+        view.backgroundColor = UIColor.colorRGB(c: 234)
         configTableView()
         loadData(isUp: true, isScrol: false)
     }
